@@ -19,6 +19,9 @@ def startOnClick(event):
     outTime = breath_out.get()
     print(f"Breath in time: {inTime}, Breath out time: {outTime}")
 
+def quit(event):
+    window.destroy()
+
 startButton = tk.Label(
     window,
     text="Start",
@@ -28,6 +31,18 @@ startButton = tk.Label(
     fg="#E7D7C6",
     bg="#082D48",
 )
+
+quitButton = tk.Label(
+    window,
+    text="Quit",
+    font=("Times New Roman", 10),
+    width=40,
+    height=2,
+    fg="#E7D7C6",
+    bg="#082D48",
+)
+
+quitButton.bind("<Button-1>", quit)
 
 startButton.bind("<Button-1>", startOnClick)
 
@@ -59,9 +74,12 @@ breath_in.pack()
 breath_out_label.pack()
 breath_out.pack()
 startButton.pack()
+quitButton.pack()
 
 # Configure window
 window.configure(bg="#082D48")
 
 # Run the application
 window.mainloop()
+
+
